@@ -29,6 +29,7 @@ public class KataCalculator {
                 flag1=true;
             }if (third==o){
                 flag2=true;
+                //
             }
         }
         return input;
