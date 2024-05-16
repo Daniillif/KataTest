@@ -16,6 +16,9 @@ public class KataCalculator {
                 index = i;
             }
         }
+        if (index==-1){
+            throw  new Exception("строка не является математической операцией");
+        }
         String first, second, third;
         first = input.substring(0, index);
         second = input.substring(index, index + 1);
@@ -79,12 +82,12 @@ public class KataCalculator {
                             return "X".repeat(f);
                     }
                 } catch (Exception ex) {
-                    throw new Exception("Результат римских цифр менее 1");
+                    throw new Exception("в римской системе нет отрицательных чисел");
                 }
             } else
-                throw new Exception("1 или оба числа не римские(неверный формат данных)");
+                throw new Exception("используются одновременно разные системы счисления");
 
         }
-        return "не верно";
+        throw new Exception("Калькулятор должен принимать на вход числа от 1 до 10 включительно");
     }
 }
