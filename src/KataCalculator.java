@@ -16,8 +16,8 @@ public class KataCalculator {
                 index = i;
             }
         }
-        if (index==-1){
-            throw  new Exception("строка не является математической операцией");
+        if (index == -1) {
+            throw new Exception("строка не является математической операцией");
         }
         String first, second, third;
         first = input.substring(0, index);
@@ -69,17 +69,50 @@ public class KataCalculator {
                             res = Rome.valueOf(first).i / Rome.valueOf(third).i;
                             break;
                     }
-                    if (res<1){
+                    if (res < 1) {
                         throw new Exception();
-                    }else if(res>1&& res <=10){
-                        return String.valueOf(Rome.values()[res-1]);
-                    }else{
-                        int f = res/10;
-                        int s  = res%10;
-                        if(s!=0){
-                            return "X".repeat(f)+ Rome.values()[s - 1];
-                        }else
-                            return "X".repeat(f);
+                    } else if (res > 1 && res <= 10) {
+                        return String.valueOf(Rome.values()[res - 1]);
+                    } else {
+                        int f = res / 10;
+                        int s = res % 10;
+                        String desyatki = "";
+                        switch (f) {
+                            case 1:
+                                desyatki = "X";
+                                break;
+                            case 2:
+                                desyatki = "XX";
+                                break;
+                            case 3:
+                                desyatki = "XXX";
+                                break;
+                            case 4:
+                                desyatki = "XL";
+                                break;
+                            case 5:
+                                desyatki = "L";
+                                break;
+                            case 6:
+                                desyatki = "LX";
+                                break;
+                            case 7:
+                                desyatki = "LXX";
+                                break;
+                            case 8:
+                                desyatki = "LXXX";
+                                break;
+                            case 9:
+                                desyatki = "XC";
+                                break;
+                            case 10:
+                                desyatki = "C";
+                                break;
+                        }
+                        if (s != 0) {
+                            return desyatki + Rome.values()[s - 1];
+                        } else
+                            return desyatki;
                     }
                 } catch (Exception ex) {
                     throw new Exception("в римской системе нет отрицательных чисел");
